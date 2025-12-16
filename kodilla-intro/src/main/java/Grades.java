@@ -43,7 +43,7 @@ public class Grades {
             sum += this.grades[i];
             /*Weź ocenę o obecnym indeksie (i) z naszej listy ocen (this.grades) i dodaj ją do naszej rosnącej sumy (sum).
              Następnie zapisz tę nową, powiększoną sumę z powrotem w zmiennej sum."
-            "+=" oznacza dodaj i przypisz */
+            "+=" oznacza dodaj i  przypisz */
         }
         return (double) sum / this.size;
     }

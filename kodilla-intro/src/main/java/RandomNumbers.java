@@ -19,7 +19,7 @@ public class RandomNumbers {
             if (currentNumber < minValue) { //Sprawdzenie Minimum
                 minValue = currentNumber; //ustawia wylosowaną liczbę jako nową minimalną wartość
             }
-            if (currentNumber > maxValue) { //Sprawdzenie Maksimum
+            if (currentNumber > maxValue) { //sprawdzenie Maksimum
                 maxValue = currentNumber; //Aktualizacja Maksimum
             }
         }

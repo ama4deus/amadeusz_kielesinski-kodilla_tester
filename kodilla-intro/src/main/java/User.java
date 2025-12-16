@@ -15,7 +15,7 @@ public class User {
         return age;
     }
 
-    public static void main(String[] args) { //sekwencja tworzenia instancji (obiektów) klasy User
+    public static void main(String[] args) { // sekwencja tworzenia instancji (obiektów) klasy User
         User anna = new User("Anna", 20);
         User betty = new User("Betty", 33);
         User carl = new User("Carl", 58);
