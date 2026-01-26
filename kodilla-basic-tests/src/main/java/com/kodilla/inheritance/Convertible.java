@@ -16,6 +16,11 @@ public class Convertible extends Car {
     }
 
     public Convertible() {
+        super(); // Wywołuje bezparametrowy konstruktor Car
         System.out.println("Convertible constructor");
+    }
+
+    public Convertible(int wheels, int seats) {
+        super(wheels, seats); // Przekazuje parametry do konstruktora Car
     }
 }
