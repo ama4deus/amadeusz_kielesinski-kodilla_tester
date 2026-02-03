@@ -4,6 +4,20 @@ public class Application {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
+        double a = 5.0;
+        double b = 8.0;
+
+
+        double sumResult = calculator.sum(a, b);
+        System.out.println("Wynik sumowania: " + sumResult);
+
+    }
+}
+
+
+
+    /*public static void main(String[] args) {
+        Calculator calculator = new Calculator();
         int a = 5;
         int b = 8;
         int n = 3;
@@ -30,5 +44,5 @@ public class Application {
             System.out.println("Metoda square nie działa poprawnie dla liczby " + n);
         }
 
-    }
-}
+    }*/
+
