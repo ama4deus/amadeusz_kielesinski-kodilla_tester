@@ -2,7 +2,7 @@
 
 package com.kodilla.collections.interfaces;
 
-class Triangle implements Shape {
+public class Triangle implements Shape {
     private double width;
     private double height;
     private double hypotenuse;
