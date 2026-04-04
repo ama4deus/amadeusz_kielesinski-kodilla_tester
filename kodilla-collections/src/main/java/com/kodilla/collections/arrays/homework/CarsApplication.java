@@ -15,11 +15,11 @@ public class CarsApplication {
         Car car;
 
         if (drawnCarBrand == 0) {
-            car = new Ford(0);
+            car = new Ford();
         } else if (drawnCarBrand == 1) {
-            car = new Opel(0);
+            car = new Opel();
         } else {
-            car = new Toyota(0);
+            car = new Toyota();
         }
 
         // Losujemy ile razy auto ma przyspieszyć (np. od 1 do 10 razy)
