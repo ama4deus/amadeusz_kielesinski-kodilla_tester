@@ -3,9 +3,6 @@ package com.kodilla.collections.interfaces.homework;
 public class Ford implements Car{
 
     private int speed;
-    public Ford (){
-        this.speed = 0;
-    }
 
     @Override
     public int getSpeed() {
@@ -19,7 +16,11 @@ public class Ford implements Car{
 
     @Override
     public void decreaseSpeed() {
-        speed = speed - 8;
+        if (speed >= 8) {
+            speed = speed - 8;
+        } else {
+            speed = 0;
+        }
     }
 
 }

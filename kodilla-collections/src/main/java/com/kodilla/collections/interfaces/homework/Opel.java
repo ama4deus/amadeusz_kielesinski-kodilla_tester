@@ -1,11 +1,8 @@
 package com.kodilla.collections.interfaces.homework;
 
-public class Opel implements Car{
+public class Opel implements Car {
 
     private int speed;
-    public Opel (){
-        this.speed = 0;
-    }
 
     @Override
     public int getSpeed() {
@@ -20,7 +17,11 @@ public class Opel implements Car{
 
     @Override
     public void decreaseSpeed() {
-        speed = speed - 8;
+        if (speed >= 8) {
+            speed = speed - 8;
+        } else {
+            speed = 0;
+        }
     }
 }
 
