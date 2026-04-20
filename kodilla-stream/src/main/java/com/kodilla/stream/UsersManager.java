@@ -5,22 +5,29 @@ import java.util.stream.Collectors;
 
 public class UsersManager {
     public static void main(String[] args) {
-        List<String> chemistGroupUsernames =
-                filterChemistGroupUsernames();
+        List<String> chemistGroupUsernames = filterChemistGroupUsernames();
         System.out.println(chemistGroupUsernames);
     }
 
-    private static List<String> filterChemistGroupUsernames() {
-        List<String> usernames = UsersRepository.getUsersList()
+    public static List<String> filterChemistGroupUsernames() {
+        return UsersRepository.getUsersList()
                 .stream()
-                .filter(user ->
-                        user.getGroup().equals("Chemists"))
-                .map(UsersManager::getUserName)
+                .filter(user -> user.getGroup().equals("Chemists"))
+                .map(User::getUsername)
                 .collect(Collectors.toList());
-        return usernames;
     }
 
-    public static String getUserName(User user) {
-        return user.getUsername();
+    public static List<User> filterUsersOlderThan(int age) {
+        return UsersRepository.getUsersList()
+                .stream()
+                .filter(user -> user.getAge() > age)
+                .collect(Collectors.toList());
+    }
+    public static List<String> filterUsersWithMoreThanOneHundredPosts() {
+        return UsersRepository.getUsersList()
+                .stream()
+                .filter(user -> user.getNumberOfPost() > 100)
+                .map(User::getUsername)
+                .collect(Collectors.toList());
     }
 }

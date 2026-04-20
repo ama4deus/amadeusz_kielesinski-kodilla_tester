@@ -11,6 +11,14 @@ public class Principal {
         this.lastname = lastname;
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
