@@ -2,8 +2,10 @@ package com.kodilla.stream.homework;
 
 import com.kodilla.stream.User;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ForumStatsTest {
@@ -13,14 +15,13 @@ class ForumStatsTest {
         // Given
         List<User> users = new ArrayList<>();
         users.add(new User("Walter", 50, 10, "Chemists"));
-        users.add(new User("Gus", 40, 20, "Board")); // Brzegowy: dokładnie 40 lat
-        users.add(new User("Jessie", 25, 100, "Sales")); // Ten nie powinien być liczony
+        users.add(new User("Gus", 40, 20, "Board"));
+        users.add(new User("Jessie", 25, 100, "Sales"));
 
         // When
         double avg = ForumStats.getAvgPostsForUsersOlderThanOrEqualTo40(users);
 
         // Then
-        // (10 + 20) / 2 = 15.0
         assertEquals(15.0, avg);
     }
 
@@ -30,23 +31,34 @@ class ForumStatsTest {
         List<User> users = new ArrayList<>();
         users.add(new User("Jessie", 25, 50, "Sales"));
         users.add(new User("Tuco", 35, 10, "Manager"));
-        users.add(new User("Walter", 50, 10, "Chemists")); // Ten nie powinien być liczony
+        users.add(new User("Walter", 50, 10, "Chemists"));
 
         // When
         double avg = ForumStats.getAvgPostsForUsersYoungerThan40(users);
 
         // Then
-        // (50 + 10) / 2 = 30.0
         assertEquals(30.0, avg);
     }
 
     @Test
-    void testGetAvgWhenNoUsersMatchCriteria() {
-        // Given - warunek brzegowy)
+    void testGetAvgWhenNoUsersYoungerThan40() {
+        // Given
         List<User> users = new ArrayList<>();
 
         // When
         double avg = ForumStats.getAvgPostsForUsersYoungerThan40(users);
+
+        // Then
+        assertEquals(0.0, avg);
+    }
+
+    @Test
+    void testGetAvgWhenNoUsersOlderThanOrEqualTo40() {
+        // Given
+        List<User> users = new ArrayList<>();
+
+        // When
+        double avg = ForumStats.getAvgPostsForUsersOlderThanOrEqualTo40(users);
 
         // Then
         assertEquals(0.0, avg);

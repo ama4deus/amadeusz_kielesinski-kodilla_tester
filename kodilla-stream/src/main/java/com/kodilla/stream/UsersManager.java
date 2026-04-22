@@ -4,10 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UsersManager {
-    public static void main(String[] args) {
-        List<String> chemistGroupUsernames = filterChemistGroupUsernames();
-        System.out.println(chemistGroupUsernames);
-    }
 
     public static List<String> filterChemistGroupUsernames() {
         return UsersRepository.getUsersList()
@@ -23,6 +19,7 @@ public class UsersManager {
                 .filter(user -> user.getAge() > age)
                 .collect(Collectors.toList());
     }
+
     public static List<String> filterUsersWithMoreThanOneHundredPosts() {
         return UsersRepository.getUsersList()
                 .stream()
