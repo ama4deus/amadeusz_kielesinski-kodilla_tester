@@ -6,14 +6,32 @@ import org.mockito.Mockito;
 
 class WeatherAlertServiceTestSuite {
 
-    WeatherAlertService weatherService = new WeatherAlertService();
-    Client client = Mockito.mock(Client.class);
-    Client secondClient = Mockito.mock(Client.class);
-    Notification notification = Mockito.mock(Notification.class);
+    private WeatherAlertService weatherService;
+    private Client client;
+    private Client secondClient;
+    private Notification notification;
 
     @BeforeEach
-    public void clearService() {
+    public void setUp() {
         weatherService = new WeatherAlertService();
+        client = Mockito.mock(Client.class);
+        secondClient = Mockito.mock(Client.class);
+        notification = Mockito.mock(Notification.class);
+    }
+
+    @Test
+    public void shouldSendOnlyOneNotificationToMultiLocationSubscriber() {
+        weatherService.addSubscriber("Warszawa", client);
+        weatherService.addSubscriber("Kraków", client);
+
+        weatherService.sendToAll(notification);
+
+        Mockito.verify(client, Mockito.times(1)).receive(notification);
+    }
+
+    @Test
+    public void shouldNotExplodeWhenRemovingFromNonExistentLocation() {
+        weatherService.removeSubscriberFromLocation("Gdynia", client);
     }
 
     @Test
@@ -28,15 +46,6 @@ class WeatherAlertServiceTestSuite {
     public void shouldNotReceiveNotificationFromOtherLocation() {
         weatherService.addSubscriber("Warszawa", client);
         weatherService.sendToLocation("Kraków", notification);
-
-        Mockito.verify(client, Mockito.never()).receive(notification);
-    }
-
-    @Test
-    public void shouldRemoveSubscriptionFromLocation() {
-        weatherService.addSubscriber("Warszawa", client);
-        weatherService.removeSubscriberFromLocation("Warszawa", client);
-        weatherService.sendToLocation("Warszawa", notification);
 
         Mockito.verify(client, Mockito.never()).receive(notification);
     }

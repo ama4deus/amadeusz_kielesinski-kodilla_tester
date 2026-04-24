@@ -14,6 +14,6 @@ public class Warehouse {
         return orders.stream()
                 .filter(o -> o.getNumber().equals(number))
                 .findFirst()
-                .orElseThrow(() -> new OrderDoesntExistException("Order with number " + number + " does not exist."));
+                .orElseThrow(() -> new OrderDoesntExistException());
     }
 }

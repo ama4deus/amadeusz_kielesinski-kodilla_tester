@@ -4,11 +4,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BMITest {
+public class PersonTest {
 
     @ParameterizedTest
-    @MethodSource(value = "com.kodilla.parametrized_tests.homework.PersonSources#providePeopleForTestingBMI")
-    void shouldCalculateCorrectBMI(Person person, String expectedBMI) {
-        assertEquals(expectedBMI, person.getBMI());
+    @MethodSource("com.kodilla.parametrized_tests.homework.PersonSources#provideDataForBmiTest")
+    public void shouldCalculateBMI(Person person, String expectedCategory) {
+        String result = person.getBMI();
+        assertEquals(expectedCategory, result);
     }
 }
