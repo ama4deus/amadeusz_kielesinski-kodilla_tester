@@ -27,9 +27,14 @@ public class MobilePhoneTestSuite {
         Mockito.verify(myPhone).launchApplication("Tetris4D");
     }
 
+
     @Test
     public void testVerificationFailure() {
+        // given & when
         myPhone.needsCharging();
-        Mockito.verify(myPhone).getFreeStorage();
+
+        // then
+        Mockito.verify(myPhone).needsCharging();
     }
+
 }
