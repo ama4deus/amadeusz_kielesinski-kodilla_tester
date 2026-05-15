@@ -7,7 +7,7 @@ import java.time.LocalTime;
 @Component
 @Scope("prototype")
 public class Clock {
-    private LocalTime time;
+    private final LocalTime time;
 
     public Clock() {
         this.time = LocalTime.now();

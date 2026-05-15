@@ -2,62 +2,41 @@ package com.kodilla.spring.basic.spring_dependency_injection.homework;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootTest
 public class CalculatorTestSuite {
 
+    @Autowired
+    private Calculator calculator;
+
     @Test
-    public void shouldAddValues() {
-        // Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic"); //
-        Calculator calculator = context.getBean(Calculator.class); //
-
-        // When
-        double result = calculator.add(10.5, 5.5);
-
-        // Then
-        Assertions.assertEquals(16.0, result, 0.01); //
+    public void shouldAdd() {
+        double result = calculator.add(10, 5);
+        Assertions.assertEquals(15, result);
     }
 
     @Test
-    public void shouldSubtractValues() {
-        // Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
-        Calculator calculator = context.getBean(Calculator.class);
-
-        // When
-        double result = calculator.subtract(10.5, 5.5);
-
-        // Then
-        Assertions.assertEquals(5.0, result, 0.01);
+    public void shouldSubtract() {
+        double result = calculator.subtract(10, 5);
+        Assertions.assertEquals(5, result);
     }
 
     @Test
-    public void shouldMultiplyValues() {
-        // Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
-        Calculator calculator = context.getBean(Calculator.class);
-
-        // When
-        double result = calculator.multiply(10.0, 5.0);
-
-        // Then
-        Assertions.assertEquals(50.0, result, 0.01);
+    public void shouldMultiply() {
+        double result = calculator.multiply(10, 5);
+        Assertions.assertEquals(50, result);
     }
 
     @Test
-    public void shouldDivideValues() {
-        // Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic");
-        Calculator calculator = context.getBean(Calculator.class);
+    public void shouldDivide() {
+        double result = calculator.divide(10, 5);
+        Assertions.assertEquals(2, result);
+    }
 
-        // When
-        double result = calculator.divide(10.0, 5.0);
-
-        // Then
-        Assertions.assertEquals(2.0, result, 0.01);
+    @Test
+    public void shouldHandleDivisionByZero() {
+        Assertions.assertThrows(ArithmeticException.class, () -> calculator.divide(10, 0));
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public class BookService {
-    private List<BookDto> books = new ArrayList<>();
+    private final List<BookDto> books = new ArrayList<>();
 
     public List<BookDto> getBooks() {
         return books;
@@ -18,6 +18,6 @@ public class BookService {
     }
 
     public void removeBook(BookDto bookDto) {
-        books.remove(bookDto);
+        this.books.remove(bookDto);
     }
 }

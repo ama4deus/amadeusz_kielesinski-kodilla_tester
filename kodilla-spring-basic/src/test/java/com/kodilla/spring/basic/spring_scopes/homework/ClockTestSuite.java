@@ -2,21 +2,21 @@ package com.kodilla.spring.basic.spring_scopes.homework;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootTest
 public class ClockTestSuite {
 
-    @Test
-    void shouldCreateDifferentClocks() throws InterruptedException {
-        // Given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.basic.spring_scopes.homework");
+    @Autowired
+    private ApplicationContext context; // Spring sam dostarczy kontekst
 
-        // When
+    @Test
+    void shouldCreateDifferentClocksWithDifferentTimes() throws InterruptedException {
+        // Given & When
         Clock firstClock = context.getBean(Clock.class);
-        Thread.sleep(10); // Czekamy 10ms
+        Thread.sleep(10);
         Clock secondClock = context.getBean(Clock.class);
         Thread.sleep(10);
         Clock thirdClock = context.getBean(Clock.class);
@@ -24,9 +24,11 @@ public class ClockTestSuite {
         // Then
         Assertions.assertNotEquals(firstClock, secondClock);
         Assertions.assertNotEquals(secondClock, thirdClock);
+        Assertions.assertNotEquals(firstClock, thirdClock);
 
         Assertions.assertNotEquals(firstClock.getTime(), secondClock.getTime());
         Assertions.assertNotEquals(secondClock.getTime(), thirdClock.getTime());
+        Assertions.assertNotEquals(firstClock.getTime(), thirdClock.getTime());
 
         System.out.println("Time 1: " + firstClock.getTime());
         System.out.println("Time 2: " + secondClock.getTime());

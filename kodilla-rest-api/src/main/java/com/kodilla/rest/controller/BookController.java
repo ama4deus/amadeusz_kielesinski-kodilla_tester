@@ -3,6 +3,7 @@ package com.kodilla.rest.controller;
 import com.kodilla.rest.domain.BookDto;
 import com.kodilla.rest.service.BookService;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class BookController {
     }
 
     @DeleteMapping
-    public void removeBook(@RequestBody BookDto bookDto) {
-        bookService.removeBook(bookDto);
+    public void removeBook(@RequestParam String title, @RequestParam String author) {
+        bookService.removeBook(new BookDto(title, author));
     }
 }
