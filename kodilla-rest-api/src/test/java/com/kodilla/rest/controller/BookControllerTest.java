@@ -17,9 +17,13 @@ class BookControllerTest {
         //given
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
+
+        BookDto book1 = new BookDto("Title 1", "Author 1");
+        BookDto book2 = new BookDto("Title 2", "Author 2");
         List<BookDto> booksList = new ArrayList<>();
-        booksList.add(new BookDto("Title 1", "Author 1"));
-        booksList.add(new BookDto("Title 2", "Author 2"));
+        booksList.add(book1);
+        booksList.add(book2);
+
         Mockito.when(bookServiceMock.getBooks()).thenReturn(booksList);
 
         //when
@@ -27,6 +31,7 @@ class BookControllerTest {
 
         //then
         assertThat(result).hasSize(2);
+        assertThat(result).containsExactly(book1, book2);
     }
 
     @Test
