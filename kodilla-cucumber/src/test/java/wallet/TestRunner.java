@@ -7,3 +7,4 @@ import org.junit.platform.suite.api.*;
 @SelectClasspathResource("wallet")
 public class TestRunner {
 }
+//wallet
