@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > TaskList</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.kodilla.hibernate.tasklist</a>
+</div>
+
+<h1>Coverage Summary for Class: TaskList (com.kodilla.hibernate.tasklist)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TaskList</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.kodilla.hibernate.tasklist;
+&nbsp;
+&nbsp;import com.kodilla.hibernate.task.Task;
+&nbsp;import jakarta.persistence.*;
+&nbsp;import jakarta.validation.constraints.NotNull;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@Entity
+&nbsp;@Table(name = &quot;TASKLISTS&quot;)
+&nbsp;public class TaskList {
+&nbsp;    private int id;
+&nbsp;    private String listName;
+&nbsp;    private String description;
+<b class="nc">&nbsp;    private List&lt;Task&gt; tasks = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;    public TaskList() {</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    public TaskList(String listName, String description) {</b>
+<b class="nc">&nbsp;        this.listName = listName;</b>
+<b class="nc">&nbsp;        this.description = description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Id
+&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+&nbsp;    @NotNull
+&nbsp;    @Column(name = &quot;ID&quot;, unique = true)
+&nbsp;    public int getId() {
+&nbsp;        return id;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Column(name = &quot;LISTNAME&quot;)
+&nbsp;    @NotNull
+&nbsp;    public String getListName() {
+<b class="nc">&nbsp;        return listName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Column(name = &quot;DESCRIPTION&quot;)
+&nbsp;    public String getDescription() {
+<b class="nc">&nbsp;        return description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @OneToMany(
+&nbsp;            targetEntity = Task.class,
+&nbsp;            mappedBy = &quot;taskList&quot;,
+&nbsp;            cascade = CascadeType.ALL,
+&nbsp;            fetch = FetchType.LAZY
+&nbsp;    )
+&nbsp;    public List&lt;Task&gt; getTasks() {
+<b class="nc">&nbsp;        return tasks;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void setId(int id) {
+<b class="nc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void setListName(String listName) {
+<b class="nc">&nbsp;        this.listName = listName;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void setDescription(String description) {
+<b class="nc">&nbsp;        this.description = description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setTasks(List&lt;Task&gt; tasks) {
+<b class="nc">&nbsp;        this.tasks = tasks;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-05-28 00:30</div>
+</div>
+</body>
+</html>

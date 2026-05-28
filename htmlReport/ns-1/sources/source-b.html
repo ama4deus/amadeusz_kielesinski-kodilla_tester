@@ -1,0 +1,264 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Grades</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Grades (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Grades</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Grades$Student</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;public class Grades {
+&nbsp;    private int[] grades;
+&nbsp;    private int size;
+&nbsp;
+<b class="nc">&nbsp;    public Grades() {</b>
+<b class="nc">&nbsp;        this.grades = new int[10];</b>
+<b class="nc">&nbsp;        this.size = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void add(int value) {
+<b class="nc">&nbsp;        if (this.size == 10) {</b>
+&nbsp;            return;
+&nbsp;        }
+<b class="nc">&nbsp;        this.grades[this.size] = value;</b>
+<b class="nc">&nbsp;        this.size++;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getLastGrade() {
+&nbsp;    /* Tutaj miałem problem, żeby wpaść na rozwiązanie, użyłem AI,
+&nbsp;    &quot;public&quot;-publiczna metoda dostępna dla innych klas,
+&nbsp;    &quot;int&quot; typ zwracany to jedna liczba całkowita,
+&nbsp;    &quot;getLastGrade&quot; - unikalna nazwa,
+&nbsp;    &quot;()&quot;-informuje, że &quot;getLastGrade&quot; to metoda, puste () informują, że ta metoda nie wymaga żadnych dodatkowych danych */
+<b class="nc">&nbsp;        if (this.size == 0) {</b>
+&nbsp;            // sprawdza, czy aktualna liczba elementów w kolekcji ocen (this.size) jest równa zero
+<b class="nc">&nbsp;            return -1;</b>
+&nbsp;            //instrukcja ta kończy działanie metody i zwraca wartość -1 jako jej wynik
+&nbsp;        }
+<b class="nc">&nbsp;        return this.grades[this.size - 1];</b>
+&nbsp;        /* Zwróć wartość, która znajduje się w tablicy grades pod indeksem równym aktualnemu rozmiarowi kolekcji (this.size)
+&nbsp;         pomniejszonemu o jeden, ponieważ indeksowanie w Java zaczyna się od 0 */
+&nbsp;    }
+&nbsp;
+&nbsp;    public double getAverage() {
+<b class="nc">&nbsp;        if (this.size == 0) {</b>
+<b class="nc">&nbsp;            return 0.0; // Zwracamy 0, jeśli nie ma ocen, aby uniknąć dzielenia przez zero</b>
+&nbsp;        }
+<b class="nc">&nbsp;        int sum = 0; // Zaczynamy od 0</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; this.size; i++) {</b>
+&nbsp;        /* i=0 ponieważ w indeksie pierwsza ocena jest na miejscu 0
+&nbsp;        * i &lt; this.size ponieważ komputer sprawdza, czy bieżąca wartość jest mniejsza niż this.size (które przechowuje aktualną liczbę ocen)
+&nbsp;        i++ zwiększa wartość licznika i o 1 */
+<b class="nc">&nbsp;            sum += this.grades[i];</b>
+&nbsp;            /*Weź ocenę o obecnym indeksie (i) z naszej listy ocen (this.grades) i dodaj ją do naszej rosnącej sumy (sum).
+&nbsp;             Następnie zapisz tę nową, powiększoną sumę z powrotem w zmiennej sum.&quot;
+&nbsp;            &quot;+=&quot; oznacza dodaj i  przypisz */
+&nbsp;        }
+<b class="nc">&nbsp;        return (double) sum / this.size;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static class Student {
+&nbsp;
+&nbsp;        private String name;
+&nbsp;        private Grades maths;
+&nbsp;        private Grades physics;
+&nbsp;        private Grades geography;
+&nbsp;        private Grades history;
+&nbsp;
+<b class="nc">&nbsp;        public Student(String name) {</b>
+<b class="nc">&nbsp;            this.name = name;</b>
+<b class="nc">&nbsp;            this.maths = new Grades();</b>
+<b class="nc">&nbsp;            this.physics = new Grades();</b>
+<b class="nc">&nbsp;            this.geography = new Grades();</b>
+<b class="nc">&nbsp;            this.history = new Grades();</b>
+&nbsp;        }
+&nbsp;        public void addMathGrade(int grade) {
+<b class="nc">&nbsp;            if (grade &gt; 0 &amp;&amp; grade &lt; 7) {</b>
+<b class="nc">&nbsp;                this.maths.add(grade);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        public void addPhysicsGrade(int grade) {
+<b class="nc">&nbsp;            if (grade &gt; 0 &amp;&amp; grade &lt; 7) {</b>
+<b class="nc">&nbsp;                this.physics.add(grade);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        public void addGeographyGrade(int grade) {
+<b class="nc">&nbsp;            if (grade &gt; 0 &amp;&amp; grade &lt; 7) {</b>
+<b class="nc">&nbsp;                this.geography.add(grade);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        public void addHistoryGrade(int grade) {
+<b class="nc">&nbsp;            if (grade &gt; 0 &amp;&amp; grade &lt; 7) {</b>
+<b class="nc">&nbsp;                this.history.add(grade);</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;        public double getMathsAverage() {
+<b class="nc">&nbsp;            return this.maths.getAverage();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public double getPhysicsAverage() {
+<b class="nc">&nbsp;            return this.physics.getAverage();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public double getGeographyAverage() {
+<b class="nc">&nbsp;            return this.geography.getAverage();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public double getHistoryAverage() {
+<b class="nc">&nbsp;            return this.history.getAverage();</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-05-28 00:11</div>
+</div>
+</body>
+</html>

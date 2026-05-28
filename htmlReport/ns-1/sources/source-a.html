@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > FirstClass</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: FirstClass (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FirstClass</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode"><b class="nc">&nbsp;public class FirstClass {</b>
+&nbsp;    public static void main(String[] args) {
+&nbsp;
+<b class="nc">&nbsp;        Notebook notebook = new Notebook(600, 1000, 2025);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Notebook - &quot; + &quot;weight: &quot; + notebook.weight + &quot;, &quot; + &quot;price: &quot; + notebook.price + &quot;, &quot; + &quot;year: &quot; + notebook.year);</b>
+<b class="nc">&nbsp;        notebook.checkPrice();</b>
+<b class="nc">&nbsp;        notebook.checkWeight();</b>
+<b class="nc">&nbsp;        notebook.worthBuying();</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println();</b>
+&nbsp;
+<b class="nc">&nbsp;        Notebook heavyNotebook = new Notebook(2000, 1500, 2020);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Heavy Notebook - &quot; + &quot;weight: &quot; + heavyNotebook.weight + &quot;, &quot; + &quot;price: &quot; + heavyNotebook.price + &quot;, &quot; + &quot;year: &quot; + heavyNotebook.year);</b>
+<b class="nc">&nbsp;        heavyNotebook.checkPrice();</b>
+<b class="nc">&nbsp;        heavyNotebook.checkWeight();</b>
+<b class="nc">&nbsp;        heavyNotebook.worthBuying();</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println();</b>
+&nbsp;
+<b class="nc">&nbsp;        Notebook oldNotebook = new Notebook(1600, 500, 2019);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Old Notebook - &quot; + &quot;weight: &quot; + oldNotebook.weight + &quot;, &quot; + &quot;price: &quot; + oldNotebook.price + &quot;, &quot; + &quot;year: &quot; + oldNotebook.year);</b>
+<b class="nc">&nbsp;        oldNotebook.checkPrice();</b>
+<b class="nc">&nbsp;        oldNotebook.checkWeight();</b>
+<b class="nc">&nbsp;        oldNotebook.worthBuying();</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println();</b>
+&nbsp;
+<b class="nc">&nbsp;        Notebook goodNotebook = new Notebook(1000, 600, 2020);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Good Notebook - &quot; + &quot;weight: &quot; + goodNotebook.weight + &quot;, &quot; + &quot;price: &quot; + goodNotebook.price + &quot;, &quot; + &quot;year: &quot; + goodNotebook.year);</b>
+<b class="nc">&nbsp;        goodNotebook.checkWeight();</b>
+<b class="nc">&nbsp;        goodNotebook.checkPrice();</b>
+<b class="nc">&nbsp;        goodNotebook.worthBuying();</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println();</b>
+&nbsp;
+<b class="nc">&nbsp;        Notebook notGoodNotebook = new Notebook(1100, 1200, 2019);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Not Good Notebook - &quot; + &quot;weight: &quot; + notGoodNotebook.weight + &quot;, &quot; + &quot;price: &quot; + notGoodNotebook.price + &quot;, &quot; + &quot;year: &quot; + notGoodNotebook.year);</b>
+<b class="nc">&nbsp;        notGoodNotebook.checkWeight();</b>
+<b class="nc">&nbsp;        notGoodNotebook.checkPrice();</b>
+<b class="nc">&nbsp;        notGoodNotebook.worthBuying();</b>
+&nbsp;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-05-28 00:11</div>
+</div>
+</body>
+</html>

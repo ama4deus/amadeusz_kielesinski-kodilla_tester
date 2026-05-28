@@ -1,0 +1,161 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > RandomNumbers</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: RandomNumbers (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RandomNumbers</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;import java.util.Random; //import klasy Random
+&nbsp;
+<b class="nc">&nbsp;public class RandomNumbers {</b>
+&nbsp;
+<b class="nc">&nbsp;    private int sumOfNumbers = 0; //Zmienna składowa przechowująca sumę wszystkich wylosowanych liczb</b>
+<b class="nc">&nbsp;    private int minValue = 31; //zmienna składowa przechowująca najmniejszą wylosowaną liczbę, pierwsza  wylosowana liczba będzie mniejsza niż 30</b>
+<b class="nc">&nbsp;    private int maxValue = 0; /*Zmienna składowa przechowująca największą wylosowaną liczbę. Inicjalizowana wartością 0,</b>
+&nbsp;    pierwsza wylosowana liczba będzie większa niż 0, bądź równa*/
+&nbsp;
+<b class="nc">&nbsp;    private final Random randomGenerator = new Random(); // instancja klasy random, final - referencja ustwiona raz, nie można jej zmienić</b>
+&nbsp;
+&nbsp;    public void generateUntilSumExceeded() { // void ponieważ metoda ma modyfikować stan wewnętrzny klasy
+&nbsp;
+<b class="nc">&nbsp;        while (sumOfNumbers &lt;= 5000) {</b>
+<b class="nc">&nbsp;            int currentNumber = randomGenerator.nextInt(31); //zapewnia zakres 0-30 włącznie</b>
+&nbsp;            /*Deklarowana jest nowa lokalna zmienna currentNumber,
+&nbsp;            której przypisywana jest losowa liczba całkowita z zakresu od 0 do 30 włącznie */
+<b class="nc">&nbsp;            sumOfNumbers = sumOfNumbers + currentNumber; //dodawanie do Sumy</b>
+<b class="nc">&nbsp;            if (currentNumber &lt; minValue) { //Sprawdzenie Minimum</b>
+<b class="nc">&nbsp;                minValue = currentNumber; //ustawia wylosowaną liczbę jako nową minimalną wartość</b>
+&nbsp;            }
+<b class="nc">&nbsp;            if (currentNumber &gt; maxValue) { //sprawdzenie Maksimum</b>
+<b class="nc">&nbsp;                maxValue = currentNumber; //Aktualizacja Maksimum</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getSumOfNumbers() {
+<b class="nc">&nbsp;        return sumOfNumbers; //zwrócenie sumy</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getMinValue() {
+<b class="nc">&nbsp;        return minValue; //zwrócenie minimum</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getMaxValue() {
+<b class="nc">&nbsp;        return maxValue; // zwrócenie maksimum</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-05-28 00:11</div>
+</div>
+</body>
+</html>

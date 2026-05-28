@@ -38,4 +38,12 @@ public class CalculatorTestSuite {
         double negative = -5.0;
         assertEquals(25.0, calculator.square(negative), 0.01);
     }
+    @Test
+    void testResultChecker() {
+        boolean result = ResultChecker.assertEquals(10, 10);
+        assertEquals(true, result);
+
+        boolean failResult = ResultChecker.assertEquals(10, 5);
+        assertEquals(false, failResult);
+    }
 }

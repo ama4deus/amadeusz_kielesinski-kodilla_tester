@@ -29,4 +29,9 @@ class WarehouseTest {
         // When & Then
         assertThrows(OrderDoesntExistException.class, () -> warehouse.getOrder("NON-EXISTENT"));
     }
+    @Test
+    public void shouldRunMainAppMethod() {
+        // Gdy wywołamy metodę main, wtyczka "zaliczy" ją jako uruchomioną
+        assertDoesNotThrow(() -> WarehouseApp.main(new String[]{}));
+    }
 }

@@ -45,4 +45,16 @@ public class CarFactoryTestSuite {
 
         Assertions.assertNotNull(lights);
     }
+    @Test
+    void shouldCoverAllCarTypesManually() {
+        // Given
+        Car cabrio = new Cabrio(true);
+        Car suv = new SUV(false);
+
+        // When & Then
+        Assertions.assertEquals("Cabrio", cabrio.getCarType());
+        Assertions.assertEquals("SUV", suv.getCarType());
+        Assertions.assertTrue(cabrio.hasHeadlightsTurnedOn());
+        Assertions.assertFalse(suv.hasHeadlightsTurnedOn());
+    }
 }

@@ -1,0 +1,163 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > User</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: User (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">User</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;public class User {
+&nbsp;    private String name; //tutaj deklarujemy atrybut klasy
+&nbsp;    private int age;
+&nbsp;
+<b class="nc">&nbsp;    public User(String name, int age) { //konstruktor</b>
+<b class="nc">&nbsp;        this.name = name; //przypisanie wartości</b>
+<b class="nc">&nbsp;        this.age = age;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getName() { //metoda dostępu getter, publiczna metoda dostępu
+<b class="nc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getAge() {
+<b class="nc">&nbsp;        return age;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) { // sekwencja tworzenia instancji (obiektów) klasy User
+<b class="nc">&nbsp;        User anna = new User(&quot;Anna&quot;, 20);</b>
+<b class="nc">&nbsp;        User betty = new User(&quot;Betty&quot;, 33);</b>
+<b class="nc">&nbsp;        User carl = new User(&quot;Carl&quot;, 58);</b>
+<b class="nc">&nbsp;        User david = new User(&quot;David&quot;, 13);</b>
+<b class="nc">&nbsp;        User eva = new User(&quot;Eva&quot;, 18);</b>
+<b class="nc">&nbsp;        User frankie = new User(&quot;Frankie&quot;, 45);</b>
+&nbsp;
+<b class="nc">&nbsp;        User[] users = {anna, betty, carl, david, eva, frankie}; //głównym celem stworzenia tablicy users jest grupowanie i przetwarzanie wielu obiektów w jednej operacji</b>
+&nbsp;
+<b class="nc">&nbsp;        int sumOfAge = 0; /*Ta linijka deklaruje i inicjalizuje zmienną lokalną sumOfAge wartością 0,</b>
+&nbsp;        która służy jako akumulator do zliczania całkowitej sumy wieku wszystkich użytkowników w pętli */
+<b class="nc">&nbsp;        for (int i = 0; i &lt; users.length; i++) { //pętla &quot;for&quot; służąca do obliczania sumy wieku wszystkich użytkowników w tablicy.</b>
+<b class="nc">&nbsp;            sumOfAge = sumOfAge + users[i].getAge(); //wartość sumy zostaje zwiększona o wiek użytkownika z bieżącego elementu tablicy  ???? (nie do końca rozumiem)</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        double averageAge = (double) sumOfAge / users.length;</b>
+&nbsp;        //(double) sumOfAge - oprator rzutowania, tymczasowo traktuje wartość sumOfAge (która jest int) jako liczbę zmiennoprzecinkową (double)
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(&quot;Average age: &quot; + averageAge);</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Users younger than average:&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        for (User person : users) { // dla każdego obiektu User nazwanego &#39;person&#39; w tablicy users</b>
+<b class="nc">&nbsp;            if (person.getAge() &lt; averageAge) { // Sprawdzamy wiek &#39;person&#39;</b>
+<b class="nc">&nbsp;                System.out.println(&quot;- &quot; + person.getName() + &quot; (age: &quot; + person.getAge() + &quot;)&quot;); // Wyświetlamy dane &#39;person&#39;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-05-28 00:30</div>
+</div>
+</body>
+</html>
