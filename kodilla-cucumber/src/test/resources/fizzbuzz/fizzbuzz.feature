@@ -19,3 +19,7 @@ Feature: FizzBuzz Game Checker
       | 1      | None           |
       | 4      | None           |
       | 0      | FizzBuzz       |
+      | -3     | Fizz           |
+      | -5     | Buzz           |
+      | -15    | FizzBuzz       |
+      | -4     | None           |
