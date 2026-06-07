@@ -15,24 +15,29 @@ class TaskListRepositoryTestSuite {
 
     @Test
     void testFindByListName() {
-        //Given
-        String listName = "ToDo List";
-        String description = "Tasks to be done this week";
-        TaskList taskList = new TaskList(listName, description);
-
-        //When
+        TaskList taskList = new TaskList("ToDo List", "Tasks to be done this week");
         taskListRepository.save(taskList);
+        int id = taskList.getId();
 
-        //Then
-        String nameToFind = taskList.getListName();
-        List<TaskList> readTaskLists = taskListRepository.findByListName(nameToFind);
+        try {
+            List<TaskList> readTaskLists = taskListRepository.findByListName("ToDo List");
 
-        //Asercja
-        Assertions.assertEquals(1, readTaskLists.size());
-        Assertions.assertEquals(description, readTaskLists.get(0).getDescription());
+            Assertions.assertEquals(1, readTaskLists.size());
+            Assertions.assertEquals("ToDo List", readTaskLists.get(0).getListName());
+            Assertions.assertEquals(
+                    "Tasks to be done this week",
+                    readTaskLists.get(0).getDescription()
+            );
+        } finally {
+            taskListRepository.deleteById(id);
+        }
+    }
 
-        //CleanUp
-        int id = readTaskLists.get(0).getId();
-        taskListRepository.deleteById(id);
+    @Test
+    void testFindByListNameWhenNotExists() {
+        List<TaskList> readTaskLists = taskListRepository.findByListName("Non Existent List");
+
+        Assertions.assertTrue(readTaskLists.isEmpty());
+        Assertions.assertEquals(0, readTaskLists.size());
     }
 }

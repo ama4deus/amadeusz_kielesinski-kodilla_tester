@@ -12,13 +12,12 @@ public class Cashier {
             cashSlot.dispense(0);
             return;
         }
-
         if (wallet.getBalance() >= amount) {
-            wallet.debit(amount);
             cashSlot.dispense(amount);
+            wallet.setBalance(wallet.getBalance() - amount);
         } else {
-            wallet.setLastMessage("I don't have enough money in my wallet");
             cashSlot.dispense(0);
+            wallet.setLastMessage("I don't have enough money in my wallet");
         }
     }
 }

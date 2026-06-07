@@ -11,7 +11,6 @@ public class WalletSteps {
     private final CashSlot cashSlot = new CashSlot();
     private int checkedBalance;
 
-
     @Given("I have deposited ${int} in my wallet")
     public void i_have_deposited_in_my_wallet(int amount) {
         wallet.deposit(amount);
@@ -34,8 +33,6 @@ public class WalletSteps {
     public void the_balance_of_my_wallet_should_be(int expectedBalance) {
         Assertions.assertEquals(expectedBalance, wallet.getBalance(), "Incorrect wallet balance");
     }
-
-    // (Zadanie 14.4 z portfelem)
 
     @Given("there is ${int} in my wallet")
     public void there_is_money_in_my_wallet(int amount) {
@@ -67,5 +64,10 @@ public class WalletSteps {
     @Then("I should see that the balance is ${int}")
     public void i_should_see_that_the_balance_is(int expectedBalance) {
         Assertions.assertEquals(expectedBalance, this.checkedBalance);
+    }
+
+    @When("I attempt to deposit ${int}")
+    public void i_attempt_to_deposit(int amount) {
+        wallet.deposit(amount);
     }
 }

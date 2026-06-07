@@ -2,25 +2,27 @@ package wallet;
 
 public class Wallet {
     private int balance = 0;
-    private String lastMessage = "";
+    private String lastMessage;
 
-    public void deposit(int amount) {
-        this.balance += amount;
+    public void deposit(int money) {
+        if (money > 0) {
+            this.balance += money;
+        }
     }
 
     public int getBalance() {
-        return this.balance;
+        return balance;
     }
 
-    public void debit(int amount) {
-        this.balance -= amount;
-    }
-
-    public void setLastMessage(String message) {
-        this.lastMessage = message;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public String getLastMessage() {
-        return this.lastMessage;
+        return lastMessage;
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
     }
 }

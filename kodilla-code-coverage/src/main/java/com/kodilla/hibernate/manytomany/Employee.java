@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -44,11 +45,21 @@ public class Employee {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_EMPLOYEES_COMPANIES",
-            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+            joinColumns = {
+                    @JoinColumn(
+                            name = "EMPLOYEE_ID",
+                            referencedColumnName = "EMPLOYEE_ID"
+                    )
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "COMPANY_ID",
+                            referencedColumnName = "COMPANY_ID"
+                    )
+            }
     )
     public List<Company> getCompanies() {
-        return companies;
+        return Optional.ofNullable(companies).orElse(null);
     }
 
     private void setId(int id) {
@@ -64,6 +75,6 @@ public class Employee {
     }
 
     public void setCompanies(List<Company> companies) {
-        this.companies = companies;
+        this.companies = Optional.ofNullable(companies).orElse(null);
     }
 }

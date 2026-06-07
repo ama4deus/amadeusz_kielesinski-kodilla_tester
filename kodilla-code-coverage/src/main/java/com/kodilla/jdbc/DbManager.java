@@ -3,30 +3,32 @@ package com.kodilla.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.Properties;
 
-public class DbManager {
-    private Connection conn;                                 // [1]
-    private static DbManager dbManagerInstance;              // [2]
+public final class DbManager {
+    private final Connection conn;
+    private static DbManager dbManagerInstance;
 
-    private DbManager() throws SQLException {                // [3]
-        Properties connectionProps = new Properties();        // [4]
-        connectionProps.put("user", "kodilla");          // [5]
-        connectionProps.put("password", "kodilla");  // [6]
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/kodilla_tester?serverTimezone=Europe/Warsaw"
-                        + "&useSSL=False",
-                connectionProps);             // [7]
-    }                                                       // [8]
+    private DbManager() throws SQLException {
+        Properties connectionProps = new Properties();
+        connectionProps.put("user", "kodilla");
+        connectionProps.put("password", "kodilla");
 
-    public static DbManager getInstance() throws SQLException {  // [9]
-        if (dbManagerInstance == null) {                          // [10]
-            dbManagerInstance = new DbManager();                   // [11]
-        }                                                         // [12]
-        return dbManagerInstance;                                 // [13]
-    }                                                           // [14]
+        String url = "jdbc:mysql://localhost:3306/kodilla_tester"
+                + "?serverTimezone=Europe/Warsaw&useSSL=False";
 
-    public Connection getConnection() {                          // [15]
-        return conn;                                             // [16]
-    }                                                            // [17]
+        conn = DriverManager.getConnection(url, connectionProps);
+    }
+
+    public static synchronized DbManager getInstance() throws SQLException {
+        if (dbManagerInstance == null) {
+            dbManagerInstance = new DbManager();
+        }
+        return dbManagerInstance;
+    }
+
+    public Connection getConnection() {
+        return Optional.ofNullable(conn).orElse(null);
+    }
 }

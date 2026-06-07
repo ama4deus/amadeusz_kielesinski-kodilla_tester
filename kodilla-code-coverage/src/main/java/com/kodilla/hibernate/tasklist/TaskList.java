@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "TASKLISTS")
@@ -48,7 +49,7 @@ public class TaskList {
             fetch = FetchType.LAZY
     )
     public List<Task> getTasks() {
-        return tasks;
+        return Optional.ofNullable(tasks).orElse(null);
     }
 
     private void setId(int id) {
@@ -64,6 +65,6 @@ public class TaskList {
     }
 
     public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+        this.tasks = Optional.ofNullable(tasks).orElse(null);
     }
 }

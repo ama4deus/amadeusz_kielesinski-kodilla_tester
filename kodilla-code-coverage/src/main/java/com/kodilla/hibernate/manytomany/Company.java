@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "COMPANIES")
@@ -35,7 +36,7 @@ public class Company {
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<Employee> getEmployees() {
-        return employees;
+        return Optional.ofNullable(employees).orElse(null);
     }
 
     private void setId(int id) {
@@ -47,6 +48,6 @@ public class Company {
     }
 
     public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+        this.employees = Optional.ofNullable(employees).orElse(null);
     }
 }
